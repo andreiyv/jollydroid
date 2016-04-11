@@ -1,5 +1,6 @@
 package ru.jollydroid.dagger2demo;
 
+import android.app.NotificationManager;
 import android.content.Context;
 
 import javax.inject.Singleton;
@@ -19,5 +20,11 @@ public class AndroidModule {
     @Singleton
     Context providesContext() {
         return context;
+    }
+
+    @Provides
+    @Singleton
+    NotificationManager providesNotificationManager(Context context) {
+        return (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
     }
 }

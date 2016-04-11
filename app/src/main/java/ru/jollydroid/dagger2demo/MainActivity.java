@@ -1,5 +1,6 @@
 package ru.jollydroid.dagger2demo;
 
+import android.app.NotificationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView hello;
 
     @Inject MyPreferences preferences;
+    @Inject NotificationManager notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
