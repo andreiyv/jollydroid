@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         hello = (TextView)findViewById(R.id.hello);
 
+// После вызова inject(this) в поле preferences будет объект класса MyPreferences.
         getAppComponent().inject(this);
 
         if (preferences.isVisited()) {
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+// Для того, чтобы получить доступ к компоненту из активити, мы должны дописать соответствующий метод.
+// В дальнейшем этот метод можно будет перенести в общий для всех активити абстрактный суперкласс (в моих приложениях он как правило есть).
     AppComponent getAppComponent() {
         return ((MyApplication)getApplication()).getAppComponent();
     }
